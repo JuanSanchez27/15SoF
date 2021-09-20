@@ -3,8 +3,10 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:fsof/navigation/app_router.dart';
-import 'package:fsof/presentation/home_page.dart';
+import 'package:fsof/presentation/landing/landing_page.dart';
+import 'package:fsof/resources/colors.dart';
 import 'package:fsof/resources/strings.dart';
+import 'package:fsof/resources/styles.dart';
 import 'package:fsof/widgets/containers/connected_loadable.dart';
 import 'package:fsof/widgets/inputs/drop_focus.dart';
 
@@ -38,9 +40,10 @@ class FsofAppState extends State<FsofApp> {
           navigatorObservers: [
             FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
           ],
-          home: const HomePage(),
+          home: const LandingPage(),
           theme: ThemeData(
-            primarySwatch: Colors.blue,
+            fontFamily: fontFamily,
+            scaffoldBackgroundColor: ColorRes.ebonyClay,
           ),
         ),
       ),

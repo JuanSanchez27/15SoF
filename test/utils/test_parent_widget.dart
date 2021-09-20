@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fsof/resources/colors.dart';
+import 'package:fsof/resources/styles.dart';
 
 class TestParentWidget extends StatelessWidget {
   const TestParentWidget({
@@ -15,8 +16,8 @@ class TestParentWidget extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: ColorRes.white,
-        fontFamily: 'OpenSans',
+        fontFamily: fontFamily,
+        scaffoldBackgroundColor: ColorRes.ebonyClay,
       ),
       home: Directionality(
         textDirection: TextDirection.ltr,

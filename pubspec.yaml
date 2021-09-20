@@ -52,9 +52,28 @@ flutter:
   assets:
     - assets/images/svg/
     - assets/images/
+    - assets/images/png/
   fonts:
-    - family: OpenSans
+    - family: Ubuntu
       fonts:
-        - asset: assets/fonts/OpenSans/OpenSans-Regular.ttf
+        - asset: assets/fonts/Ubuntu/Ubuntu-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Ubuntu/Ubuntu-LightItalic.ttf
+          style: italic
+          weight: 300
+        - asset: assets/fonts/Ubuntu/Ubuntu-Regular.ttf
           weight: 400
+        - asset: assets/fonts/Ubuntu/Ubuntu-Italic.ttf
+          style: italic
+          weight: 400
+        - asset: assets/fonts/Ubuntu/Ubuntu-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Ubuntu/Ubuntu-MediumItalic.ttf
+          style: italic
+          weight: 500
+        - asset: assets/fonts/Ubuntu/Ubuntu-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Ubuntu/Ubuntu-BoldItalic.ttf
+          style: italic
+          weight: 700
 

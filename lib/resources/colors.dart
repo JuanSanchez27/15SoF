@@ -6,4 +6,6 @@ class ColorRes {
   static const black = Color(0xFF000000);
   static const white = Color(0xFFFFFFFF);
   static const errorRed = Color(0xFFC73734);
+  static const primary = Color(0xFF38C9BA);
+  static const ebonyClay = Color(0xFF242A38);
 }
