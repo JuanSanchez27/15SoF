@@ -1,0 +1,230 @@
+---
+format_version: '8'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: flutter
+workflows:
+  production:
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - slack@3:
+        inputs:
+        - channel: "$SLACK_CI_CHAT"
+        - text: Build of the staging version of the app started!
+        - from_username: Mobile CI Bot
+        - pretext: "*Build Started!*"
+        - webhook_url: "$SLACK_URL"
+    - git-clone@4: {}
+    - cache-pull@2: {}
+    - certificate-and-profile-installer@1: {}
+    - change-android-versioncode-and-versionname@1:
+        inputs:
+        - build_gradle_path: "$BITRISE_SOURCE_DIR/android/app/build.gradle"
+    - set-ios-version@2:
+        inputs:
+        - bundle_version: "$BITRISE_BUILD_NUMBER"
+        - info_plist_file: "$IOS_INFO_PLIST_PATH"
+    - ios-auto-provision@1:
+        inputs:
+        - team_id: "$APPLE_DEVELOPER_PORTAL_TEAM_ID"
+        - generate_profiles: 'yes'
+        - configuration: "$IOS_CONFIGURATION"
+        - distribution_type: ad-hoc
+    - flutter-installer@0:
+        inputs:
+        - version: "$FLUTTER_VERSION"
+        - is_update: 'false'
+    - flutter-analyze@0:
+        inputs:
+        - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
+    - flutter-test@0.9:
+        inputs:
+        - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
+    - flutter-build@0.13:
+        inputs:
+        - android_additional_params: "--release --flavor production -t lib/main_production.dart"
+        - ios_additional_params: "--release --no-codesign --flavor production -t lib/main_production.dart"
+    - sign-apk@1: {}
+    - firebase-app-distribution@0:
+        inputs:
+        - app_path: "$BITRISE_APK_PATH"
+        - app: "$FIREBASE_ANDROID_APP_ID"
+        - groups: internal
+        - firebase_token: "$FIREBASE_TOKEN"
+    - slack@3:
+        inputs:
+        - channel: "$SLACK_CI_CHAT"
+        - text: ":android: build $ANDROID_VERSION_NAME ($ANDROID_VERSION_CODE) successfully
+            uploaded to Firebase!"
+        - from_username: Mobile CI Bot
+        - webhook_url: "$SLACK_URL"
+    - xcode-archive@2:
+        inputs:
+        - export_method: ad-hoc
+        - team_id: "$APPLE_DEVELOPER_PORTAL_TEAM_ID"
+        - upload_bitcode: 'no'
+        - compile_bitcode: 'no'
+        - configuration: "$IOS_CONFIGURATION"
+    - firebase-app-distribution@0:
+        inputs:
+        - app_path: "$BITRISE_IPA_PATH"
+        - app: "$FIREBASE_IOS_APP_ID"
+        - groups: internal
+        - firebase_token: "$FIREBASE_TOKEN"
+    - firebase-dsym-upload@1:
+        inputs:
+        - fdu_google_services_location: "$FIREBASE_GOOGLE_SERVICE_INFO_FILE"
+        - fdu_fabric_location: "$FIREBASE_CRASHLYTICS_SYMBOLS_FILE"
+    - slack@3:
+        inputs:
+        - channel: "$SLACK_CI_CHAT"
+        - text: ":ios: build $APP_VERSION ($APP_BUILD) successfully uploaded to Firebase!"
+        - from_username: Mobile CI Bot
+        - webhook_url: "$SLACK_URL"
+    - cache-push@2: {}
+    - deploy-to-bitrise-io@1: {}
+    envs:
+    - opts:
+        is_expand: false
+      BITRISE_SCHEME: production
+    - opts:
+        is_expand: false
+      IOS_CONFIGURATION: Release-production
+    - opts:
+        is_expand: false
+      FIREBASE_ANDROID_APP_ID: 1:464731805143:android:10291ca967ab5ae55a6792
+    - opts:
+        is_expand: false
+      FIREBASE_IOS_APP_ID: 1:464731805143:ios:e5305455f4eb31a85a6792
+    - opts:
+        is_expand: false
+      FIREBASE_GOOGLE_SERVICE_INFO_FILE: ios/config/production/GoogleService-Info.plist
+  qa:
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@4: {}
+    - slack@3:
+        inputs:
+        - channel: "$SLACK_CI_CHAT"
+        - text: Build $BITRISE_BUILD_NUMBER of the staging version of the app started!
+        - from_username: Mobile CI Bot
+        - pretext: "*Build Started!*"
+        - webhook_url: "$SLACK_URL"
+    - cache-pull@2: {}
+    - certificate-and-profile-installer@1: {}
+    - change-android-versioncode-and-versionname@1:
+        inputs:
+        - build_gradle_path: "$BITRISE_SOURCE_DIR/android/app/build.gradle"
+    - set-ios-version@2:
+        inputs:
+        - bundle_version: "$BITRISE_BUILD_NUMBER"
+        - info_plist_file: "$IOS_INFO_PLIST_PATH"
+    - ios-auto-provision@1:
+        inputs:
+        - team_id: "$APPLE_DEVELOPER_PORTAL_TEAM_ID"
+        - generate_profiles: 'yes'
+        - configuration: "$IOS_CONFIGURATION"
+        - distribution_type: ad-hoc
+    - flutter-installer@0:
+        inputs:
+        - version: "$FLUTTER_VERSION"
+        - is_update: 'false'
+    - flutter-analyze@0:
+        inputs:
+        - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
+    - flutter-test@0.9:
+        inputs:
+        - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
+    - flutter-build@0.13:
+        inputs:
+        - android_additional_params: "--release --flavor staging -t lib/main_staging.dart"
+        - ios_additional_params: "--release --no-codesign --flavor staging -t lib/main_staging.dart"
+    - sign-apk@1: {}
+    - firebase-app-distribution@0:
+        inputs:
+        - app_path: "$BITRISE_APK_PATH"
+        - app: "$FIREBASE_ANDROID_APP_ID"
+        - groups: internal
+        - firebase_token: "$FIREBASE_TOKEN"
+    - slack@3:
+        inputs:
+        - channel: "$SLACK_CI_CHAT"
+        - text: ":android: build $ANDROID_VERSION_NAME ($ANDROID_VERSION_CODE) successfully
+            uploaded to Firebase!"
+        - from_username: Mobile CI Bot
+        - webhook_url: "$SLACK_URL"
+    - xcode-archive@2:
+        inputs:
+        - export_method: ad-hoc
+        - team_id: "$APPLE_DEVELOPER_PORTAL_TEAM_ID"
+        - upload_bitcode: 'no'
+        - compile_bitcode: 'no'
+        - configuration: "$IOS_CONFIGURATION"
+    - firebase-app-distribution@0:
+        inputs:
+        - app_path: "$BITRISE_IPA_PATH"
+        - app: "$FIREBASE_IOS_APP_ID"
+        - groups: internal
+        - firebase_token: "$FIREBASE_TOKEN"
+    - firebase-dsym-upload@1:
+        inputs:
+        - fdu_fabric_location: "$FIREBASE_CRASHLYTICS_SYMBOLS_FILE"
+        - fdu_google_services_location: "$FIREBASE_GOOGLE_SERVICE_INFO_FILE"
+    - slack@3:
+        inputs:
+        - channel: "$SLACK_CI_CHAT"
+        - text: ":ios: build $APP_VERSION ($APP_BUILD) successfully uploaded to Firebase!"
+        - from_username: Mobile CI Bot
+        - webhook_url: "$SLACK_URL"
+    - cache-push@2: {}
+    - deploy-to-bitrise-io@1: {}
+    envs:
+    - opts:
+        is_expand: false
+      BITRISE_SCHEME: staging
+    - opts:
+        is_expand: false
+      IOS_CONFIGURATION: Release-staging
+    - opts:
+        is_expand: false
+      FIREBASE_ANDROID_APP_ID: 1:837401684839:android:c4eda2a3e431c89e469dc2
+    - opts:
+        is_expand: false
+      FIREBASE_IOS_APP_ID: 1:837401684839:ios:72eb2251e6ce651e469dc2
+    - opts:
+        is_expand: false
+      FIREBASE_GOOGLE_SERVICE_INFO_FILE: ios/config/staging/GoogleService-Info.plist
+app:
+  envs:
+  - opts:
+      is_expand: false
+    BITRISE_FLUTTER_PROJECT_LOCATION: "."
+  - opts:
+      is_expand: false
+    BITRISE_PROJECT_PATH: ios/Runner.xcworkspace
+  - opts:
+      is_expand: false
+    BITRISE_SCHEME: Runner
+  - opts:
+      is_expand: false
+    BITRISE_EXPORT_METHOD: ad-hoc
+  - opts:
+      is_expand: false
+    FLUTTER_VERSION: 1.22.0
+  - opts:
+      is_expand: false
+    SLACK_CI_CHAT: "#ci-example"
+  - opts:
+      is_expand: false
+    IOS_INFO_PLIST_PATH: ios/Runner/Info.plist
+  - opts:
+      is_expand: false
+    FIREBASE_CRASHLYTICS_SYMBOLS_FILE: ios/Pods/Fabric/upload-symbols
+trigger_map:
+- push_branch: flavors
+  workflow: qa
+- push_branch: qa
+  workflow: qa
+- push_branch: production
+  workflow: production

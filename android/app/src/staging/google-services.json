@@ -1,0 +1,220 @@
+{
+  "project_info": {
+    "project_number": "1058498708613",
+    "firebase_url": "https://fsof-2015.firebaseio.com",
+    "project_id": "fsof-2015",
+    "storage_bucket": "fsof-2015.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058498708613:android:64ffc14626494402",
+        "android_client_info": {
+          "package_name": "com.fsof"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058498708613-1gpu31pm3jjfkf57r22muc0nj9rpnj0s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fsof",
+            "certificate_hash": "e17b137cbd09dde8dc0ca815b06a92b5b97b0ba4"
+          }
+        },
+        {
+          "client_id": "1058498708613-b9hiuegj17rv1eqf1e7r28sa4nre0o0b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeEXEsaudQvWJfIQ1mmqkEFihLGt6kbKk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058498708613-b9hiuegj17rv1eqf1e7r28sa4nre0o0b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1058498708613-3599jauu55bm70325ph0or373n01ml3r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.15sof.x-5SoF",
+                "app_store_id": "964715438"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058498708613:android:f35345e8873fa684",
+        "android_client_info": {
+          "package_name": "com.fsof.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058498708613-1rpm9sauffu63i5ah1irapu4sl2l0dj7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fsof.dev",
+            "certificate_hash": "c7a7431e68e25be3076db2762f8c5d8e660e4299"
+          }
+        },
+        {
+          "client_id": "1058498708613-b9hiuegj17rv1eqf1e7r28sa4nre0o0b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeEXEsaudQvWJfIQ1mmqkEFihLGt6kbKk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058498708613-b9hiuegj17rv1eqf1e7r28sa4nre0o0b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1058498708613-3599jauu55bm70325ph0or373n01ml3r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.15sof.x-5SoF",
+                "app_store_id": "964715438"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058498708613:android:e861ece7201668c2",
+        "android_client_info": {
+          "package_name": "com.fsof.sdk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058498708613-b9hiuegj17rv1eqf1e7r28sa4nre0o0b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeEXEsaudQvWJfIQ1mmqkEFihLGt6kbKk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058498708613-b9hiuegj17rv1eqf1e7r28sa4nre0o0b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1058498708613-3599jauu55bm70325ph0or373n01ml3r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.15sof.x-5SoF",
+                "app_store_id": "964715438"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058498708613:android:2bab83e560ed3bdb",
+        "android_client_info": {
+          "package_name": "com.fsof.sdk.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058498708613-b9hiuegj17rv1eqf1e7r28sa4nre0o0b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeEXEsaudQvWJfIQ1mmqkEFihLGt6kbKk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058498708613-b9hiuegj17rv1eqf1e7r28sa4nre0o0b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1058498708613-3599jauu55bm70325ph0or373n01ml3r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.15sof.x-5SoF",
+                "app_store_id": "964715438"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058498708613:android:e123ac410ffa890f",
+        "android_client_info": {
+          "package_name": "com.fsof.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058498708613-f2eqqic6i0e1ek78rjic6ag1ebmab0jn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fsof.test",
+            "certificate_hash": "e17b137cbd09dde8dc0ca815b06a92b5b97b0ba4"
+          }
+        },
+        {
+          "client_id": "1058498708613-b9hiuegj17rv1eqf1e7r28sa4nre0o0b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeEXEsaudQvWJfIQ1mmqkEFihLGt6kbKk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058498708613-b9hiuegj17rv1eqf1e7r28sa4nre0o0b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1058498708613-3599jauu55bm70325ph0or373n01ml3r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.15sof.x-5SoF",
+                "app_store_id": "964715438"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
