@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fsof/presentation/home_page.dart';
+import 'package:fsof/presentation/landing/landing_page.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'utils/devices.dart';
 import 'utils/extensions.dart';
@@ -11,12 +11,12 @@ void main() {
     await setupEnvironment();
   });
 
-  const path = 'home_page';
+  const path = 'landing_page';
 
   testGoldens(
-    'Home Page should look correct',
+    'Landing Page should look correct',
     (tester) async {
-      const page = HomePage();
+      const page = LandingPage();
 
       await tester.pumpWidgetWithNetworkImageMock(
         page,
@@ -27,7 +27,7 @@ void main() {
 
       await multiScreenGolden(
         tester,
-        '$path/home',
+        '$path/landing',
         devices: devicesWithDifferentTextScales(),
       );
     },
