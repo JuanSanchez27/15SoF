@@ -1,6 +1,7 @@
 import 'package:dash_kit_control_panel/dash_kit_control_panel.dart';
 import 'package:dash_kit_core/dash_kit_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fsof/app/app_state.dart';
 import 'package:fsof/app/operation.dart';
 import 'package:fsof/core/app_store_connector.dart';
@@ -8,12 +9,13 @@ import 'package:fsof/features/example/actions/get_title_action.dart';
 import 'package:fsof/features/example/actions/increment_action.dart';
 import 'package:fsof/features/example/actions/reset_action.dart';
 import 'package:fsof/resources/strings.dart';
+import 'package:fsof/widgets/navigation/fsof_bottom_navigation_bar.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
+class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
+    final currentTabIndex = useState(0);
+
     return Scaffold(
       appBar: AppBar(
         title: ControlPanelGate(child: Text(Strings.title)),
@@ -23,6 +25,10 @@ class HomePage extends StatelessWidget {
         onPressed: () => _incrementCounter(context),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
+      ),
+      bottomNavigationBar: FsofBottomNavigationBar(
+        currentIndex: currentTabIndex.value,
+        onTap: (pageIndex) => currentTabIndex.value = pageIndex,
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
