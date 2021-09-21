@@ -15,12 +15,42 @@ class Styles {
     leadingDistribution: TextLeadingDistribution.even,
   );
 
+  static const h5 = TextStyle(
+    fontFamily: fontFamily,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.normal,
+    fontSize: 18,
+    height: 1.3,
+    color: ColorRes.white,
+    leadingDistribution: TextLeadingDistribution.even,
+  );
+
   static const p1 = TextStyle(
     fontFamily: fontFamily,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
     fontSize: 14,
     height: 1.4,
+    color: ColorRes.white,
+    leadingDistribution: TextLeadingDistribution.even,
+  );
+
+  static const p2 = TextStyle(
+    fontFamily: fontFamily,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.normal,
+    fontSize: 12,
+    height: 2,
+    color: ColorRes.white,
+    leadingDistribution: TextLeadingDistribution.even,
+  );
+
+  static const bodySmall = TextStyle(
+    fontFamily: fontFamily,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.normal,
+    fontSize: 11,
+    height: 1,
     color: ColorRes.white,
     leadingDistribution: TextLeadingDistribution.even,
   );
@@ -62,6 +92,16 @@ class Styles {
     fontSize: 13,
     height: 1,
     color: ColorRes.black,
+    leadingDistribution: TextLeadingDistribution.even,
+  );
+
+  static const gradientButton = TextStyle(
+    fontFamily: fontFamily,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w700,
+    fontSize: 16,
+    height: 1,
+    color: ColorRes.white,
     leadingDistribution: TextLeadingDistribution.even,
   );
 }

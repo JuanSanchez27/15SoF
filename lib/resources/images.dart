@@ -3,6 +3,10 @@ class Images {
   static const pngImages = 'assets/images/png';
 
   static const icBack = '$svgImages/ic_back.svg';
+  static const icClose = '$svgImages/ic_close.svg';
+  static const icFacebook = '$svgImages/ic_facebook.svg';
+  static const icGoogle = '$svgImages/ic_google.svg';
+  static const icPhone = '$svgImages/ic_phone.svg';
   static const sofLogo = '$svgImages/sof_logo.svg';
 
   static const getFame = '$pngImages/get_fame.png';

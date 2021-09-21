@@ -12,6 +12,8 @@ import 'package:fsof/resources/strings.dart';
 import 'package:fsof/widgets/navigation/fsof_bottom_navigation_bar.dart';
 
 class HomePage extends HookWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final currentTabIndex = useState(0);

@@ -64,5 +64,31 @@ class Strings {
 
   static String get warning => 'Warning';
 
+  //endregion
+
+  //region Guest page
+
+  static String get guestPageTitle => 'The future of memories';
+
+  static String get guestPageR => '®';
+
+  static String get guestPageContinue => 'Or Continue with';
+
+  static String get guestPageRegistered1 => 'Registered by email?';
+
+  static String get guestPageRegistered2 => ' Log In ';
+
+  static String get guestPageRegistered3 => 'here.';
+
+  static String get guestPageLogin => 'Continue with Phone';
+
+  static String get guestPageAgreement1 => 'By continuing, I accept the';
+
+  static String get guestPageAgreement2 => ' Official Rules ';
+
+  static String get guestPageAgreement3 => '&';
+
+  static String get guestPageAgreement4 => ' Privacy Policy.';
+
 //endregion
 }
