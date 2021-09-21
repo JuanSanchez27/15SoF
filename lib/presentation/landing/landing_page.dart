@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fsof/presentation/dialogs/dialogs.dart';
+import 'package:fsof/presentation/landing/landing_page_hooks.dart';
 import 'package:fsof/presentation/landing/widgets/fame_square.dart';
 import 'package:fsof/resources/colors.dart';
 import 'package:fsof/resources/images.dart';
 import 'package:fsof/resources/strings.dart';
 import 'package:fsof/widgets/buttons/primary_button.dart';
 
-class LandingPage extends StatelessWidget {
+class LandingPage extends HookWidget {
   const LandingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final onCreateFamePressed = useOnCreateFameCallback();
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -23,7 +27,7 @@ class LandingPage extends StatelessWidget {
               const SizedBox(height: 24),
               Expanded(
                 child: FameSquare.createFame(
-                  onPressed: () => showNotImplemented(context),
+                  onPressed: onCreateFamePressed,
                 ),
               ),
               const SizedBox(height: 20),
