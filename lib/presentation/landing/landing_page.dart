@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fsof/navigation/app_router.dart';
 import 'package:fsof/presentation/dialogs/dialogs.dart';
 import 'package:fsof/presentation/landing/landing_page_hooks.dart';
 import 'package:fsof/presentation/landing/widgets/fame_square.dart';
+import 'package:fsof/presentation/main_page.dart';
 import 'package:fsof/resources/colors.dart';
 import 'package:fsof/resources/images.dart';
 import 'package:fsof/resources/strings.dart';
@@ -39,7 +41,7 @@ class LandingPage extends HookWidget {
               const SizedBox(height: 32),
               PrimaryButton(
                 text: Strings.watchFame,
-                onPressed: () => showNotImplemented(context),
+                onPressed: () => appRouter.startWith(const MainPage()),
                 color: ColorRes.transparent,
                 textColor: ColorRes.primary,
               ),
