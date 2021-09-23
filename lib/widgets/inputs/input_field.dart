@@ -49,15 +49,8 @@ class _InputFieldState extends State<InputField> {
         autovalidateMode: widget.props.autovalidateMode,
         builder: (state) {
           return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              if (widget.props.label != null) ...[
-                Text(
-                  widget.props.label!,
-                  style: Styles.p1,
-                ),
-                const SizedBox(height: 6),
-              ],
               TextField(
                 maxLines: widget.props.maxLines,
                 controller: widget.props.controller,
@@ -66,7 +59,7 @@ class _InputFieldState extends State<InputField> {
                 textInputAction: widget.props.textInputAction,
                 textAlign: widget.props.textAlign,
                 onSubmitted: _submitField,
-                style: Styles.p1.copyWith(color: widget.props.textColor),
+                style: Styles.h4.copyWith(color: widget.props.textColor),
                 onChanged: (value) {
                   state.didChange(value);
                   widget.props.onChanged?.call(value);
@@ -75,6 +68,7 @@ class _InputFieldState extends State<InputField> {
                 inputFormatters: widget.props.inputFormatters,
                 maxLength: widget.props.maxLength,
                 keyboardType: widget.props.keyboardType,
+                cursorColor: ColorRes.primary,
                 buildCounter: (
                   context, {
                   required currentLength,
@@ -83,11 +77,18 @@ class _InputFieldState extends State<InputField> {
                 }) =>
                     null,
                 decoration: InputDecoration(
-                  floatingLabelBehavior: widget.props.floatingLabelBehavior,
+                  floatingLabelBehavior: FloatingLabelBehavior.never,
                   suffixIcon: widget.props.obscureText
                       ? _buildObscurementButton()
                       : widget.props.suffixIcon,
                   labelStyle: Styles.p1,
+                  filled: true,
+                  fillColor: widget.props.fillColor,
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(34),
+                  ),
+
                 ),
               ),
               if (state.hasError && !_hasFocus) ...[
@@ -95,6 +96,7 @@ class _InputFieldState extends State<InputField> {
                 Text(
                   state.errorText!,
                   style: Styles.p1.copyWith(color: ColorRes.errorRed),
+                  textAlign: TextAlign.center,
                 ),
               ]
             ],

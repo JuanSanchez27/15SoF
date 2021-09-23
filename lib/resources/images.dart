@@ -22,4 +22,5 @@ class Images {
   static const icPhone = '$svgImages/ic_phone.svg';
   static const icSearch = '$svgImages/ic_search.svg';
   static const icShare = '$svgImages/ic_share.svg';
+  static const icRemove = '$svgImages/ic_remove.svg';
 }

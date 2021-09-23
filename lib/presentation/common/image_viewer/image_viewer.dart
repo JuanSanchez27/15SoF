@@ -34,7 +34,7 @@ class ImageViewerPageState extends State<ImageViewerPage> {
       fit: StackFit.expand,
       children: [
         _buildViewer(),
-        _buildButtons(),
+        _buildButtons(context),
       ],
     );
   }
@@ -112,7 +112,7 @@ class ImageViewerPageState extends State<ImageViewerPage> {
     );
   }
 
-  Widget _buildButtons() {
+  Widget _buildButtons(BuildContext context) {
     if (widget.images.isEmpty) {
       return Container();
     }
@@ -124,7 +124,7 @@ class ImageViewerPageState extends State<ImageViewerPage> {
         padding: const EdgeInsets.all(8),
         child: Row(
           children: <Widget>[
-            _buildButton(Icons.clear, appRouter.goBack),
+            _buildButton(Icons.clear, () => appRouter.goBack(context)),
           ],
         ),
       ),

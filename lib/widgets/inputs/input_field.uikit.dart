@@ -15,7 +15,6 @@ class InputFieldUiKitBuilder extends UiKitBuilder {
       const InputField(
         props: InputFieldProps(
           hint: 'Hint',
-          label: 'Label',
         ),
       ),
     );
@@ -24,7 +23,6 @@ class InputFieldUiKitBuilder extends UiKitBuilder {
       const InputField(
         props: InputFieldProps(
           hint: 'Hint',
-          label: 'Pin code',
           keyboardType: TextInputType.number,
           obscureText: true,
         ),
@@ -35,7 +33,6 @@ class InputFieldUiKitBuilder extends UiKitBuilder {
       InputField(
         props: InputFieldProps(
           hint: 'Hint',
-          label: 'Label',
           controller: TextEditingController(text: 'Email'),
         ),
       ),
@@ -45,7 +42,6 @@ class InputFieldUiKitBuilder extends UiKitBuilder {
       InputField(
         props: InputFieldProps(
           hint: 'Hint',
-          label: 'Label',
           controller: TextEditingController(text: 'Email'),
           autovalidateMode: AutovalidateMode.always,
           validatorRules: [FormatResult((_) => true, 'Wrong email')],
@@ -57,7 +53,6 @@ class InputFieldUiKitBuilder extends UiKitBuilder {
       const InputField(
         props: InputFieldProps(
           hint: 'Hint',
-          label: 'Label',
           maxLines: 2,
         ),
       ),
@@ -67,10 +62,8 @@ class InputFieldUiKitBuilder extends UiKitBuilder {
       const InputField(
         props: InputFieldProps(
           hint: 'Hint',
-          label: 'Label',
           maxLines: 1,
           inputBorder: OutlineInputBorder(),
-          floatingLabelBehavior: FloatingLabelBehavior.never,
         ),
       ),
     );

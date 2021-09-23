@@ -40,6 +40,9 @@ class _UiKitSettingState extends State<UiKitSetting> {
   }
 
   void openUiKit() {
-    appRouter.goTo(const UiKitPage(componentWithPadding: true));
+    appRouter.goTo(
+      context: context,
+      route: const UiKitPage(componentWithPadding: true),
+    );
   }
 }

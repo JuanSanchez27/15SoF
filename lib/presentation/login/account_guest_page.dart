@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fsof/navigation/app_router.dart';
 import 'package:fsof/presentation/dialogs/dialogs.dart';
+import 'package:fsof/presentation/login/login_mobile_page.dart';
 import 'package:fsof/resources/images.dart';
 import 'package:fsof/resources/strings.dart';
 import 'package:fsof/resources/styles.dart';
@@ -25,7 +26,7 @@ class AccountGuestPage extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 12),
                   child: IconButton(
-                    onPressed: () => appRouter.goBack(),
+                    onPressed: () => appRouter.goBack(context),
                     icon: SvgPicture.asset(Images.icClose),
                   ),
                 ),
@@ -62,7 +63,10 @@ class AccountGuestPage extends StatelessWidget {
                 child: GradientButton(
                   icon: Images.icPhone,
                   text: Strings.guestPageLogin,
-                  onPressed: () => showNotImplemented(context),
+                  onPressed: () => appRouter.goTo(
+                    context: context,
+                    route: const LoginMobilePage(),
+                  ),
                 ),
               ),
               const SizedBox(height: 32),
@@ -108,7 +112,7 @@ class AccountGuestPage extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 18),
             ],
           ),
         ),
