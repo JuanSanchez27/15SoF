@@ -91,4 +91,13 @@ class Strings {
   static String get guestPageAgreement4 => ' Privacy Policy.';
 
 //endregion
+
+  //region Home page
+
+  static String get follow => 'Follow';
+
+  static String get following => 'Following';
+
+//endregion
+
 }

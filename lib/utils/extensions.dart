@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:fsof/utils/formats.dart';
 
 extension StringExtension on String {
@@ -90,4 +92,8 @@ extension DateExtension on DateTime? {
       return '';
     }
   }
+}
+
+extension PlatformEnvironmentExtension on Platform {
+  static bool isTest = Platform.environment.containsKey('FLUTTER_TEST');
 }

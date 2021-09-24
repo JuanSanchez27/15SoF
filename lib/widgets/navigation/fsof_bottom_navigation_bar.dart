@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fsof/presentation/home_page/home_page.dart';
 import 'package:fsof/resources/colors.dart';
 import 'package:fsof/resources/images.dart';
 
@@ -67,7 +68,7 @@ extension BottomBarItemsExtension on BottomBarItems {
   BottomBarItem get properties => {
         BottomBarItems.home: BottomBarItem(
           image: Images.icHome,
-          buildContent: () => const SizedBox(),
+          buildContent: () => const HomePage(),
         ),
         BottomBarItems.search: BottomBarItem(
           image: Images.icSearch,

@@ -11,6 +11,7 @@ dependencies:
   built_value: ^8.1.2
   built_value_generator: ^8.1.2
 
+  cached_network_image: ^3.1.0
   cupertino_icons: ^1.0.3
 
   dash_kit_control_panel: ^3.0.1
