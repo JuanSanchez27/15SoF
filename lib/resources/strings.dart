@@ -101,6 +101,14 @@ class Strings {
 
   static String get sendCode => 'Send code';
 
+  static String get sendNewCode => 'Send new code';
+
+  static String get enterCode => 'Enter code';
+
+  static String codeSentTo(String to) => 'Code sent to\n$to';
+
+
+
 //endregion
 
   //region Home page
