@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:fsof/presentation/login/login_code_page.dart';
 import 'package:fsof/presentation/login/login_mobile_page.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'utils/devices.dart';
@@ -11,7 +12,7 @@ void main() {
     await setupEnvironment();
   });
 
-  const path = 'login_mobile_page';
+  const path = 'login_page';
 
   testGoldens(
     'Login Mobile Page should look correct',
@@ -27,7 +28,27 @@ void main() {
 
       await multiScreenGolden(
         tester,
-        '$path/login',
+        '$path/phone',
+        devices: devicesWithDifferentTextScales(),
+      );
+    },
+  );
+
+  testGoldens(
+    'Login Code Page should look correct',
+        (tester) async {
+      const page = LoginCodePage(phoneNumber: '+ 1 (202) 555-0130');
+
+      await tester.pumpWidgetWithNetworkImageMock(
+        page,
+        wrapper: (child) => TestStateWidget(
+          child: child,
+        ),
+      );
+
+      await multiScreenGolden(
+        tester,
+        '$path/code',
         devices: devicesWithDifferentTextScales(),
       );
     },

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fsof/presentation/dialogs/dialogs.dart';
 import 'package:fsof/presentation/login/login_page_hooks.dart';
 import 'package:fsof/presentation/login/region_selector.dart';
 import 'package:fsof/resources/colors.dart';
@@ -39,6 +38,10 @@ class LoginMobilePage extends HookWidget {
       textController.addListener(func);
       return () => textController.removeListener(func);
     }, [region.value]);
+    final onSubmitPressed = useOnSubmitCallback(
+      phone: textController.text,
+      code: '${region.value.prefix}',
+    );
 
     return Scaffold(
       appBar: SofAppBar.withTitleAndBack(title: Strings.loginMobileTitle),
@@ -122,8 +125,7 @@ class LoginMobilePage extends HookWidget {
             const SizedBox(height: 36),
             GradientButton(
               text: Strings.sendCode,
-              onPressed:
-                  isValid.value ? () => showNotImplemented(context) : null,
+              onPressed: isValid.value ? onSubmitPressed : null,
             ),
           ],
         ),
