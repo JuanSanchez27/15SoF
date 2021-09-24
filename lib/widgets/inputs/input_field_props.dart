@@ -7,7 +7,6 @@ class InputFieldProps {
   const InputFieldProps({
     this.isEnabled = true,
     this.hint,
-    this.label,
     this.onSubmitted,
     this.validatorRules,
     this.controller,
@@ -22,24 +21,20 @@ class InputFieldProps {
     this.textCapitalization = TextCapitalization.none,
     this.keyboardType = TextInputType.text,
     this.autovalidateMode = AutovalidateMode.disabled,
-    this.loosingFocusValidation = true,
     this.maxLines = 1,
     this.lines = 1,
     this.maxLength = 64,
     this.inputFormatters,
     this.onChanged,
-    this.labelColor = ColorRes.black,
-    this.textColor = ColorRes.black,
+    this.textColor = ColorRes.ebonyClay,
     this.hintColor = ColorRes.black,
-    this.fillColor = ColorRes.black,
+    this.fillColor = ColorRes.white,
     this.suffixIcon,
     this.inputBorder,
-    this.floatingLabelBehavior,
   });
 
   final bool isEnabled;
   final String? hint;
-  final String? label;
   final ValueChanged<String>? onSubmitted;
   final List<FormatResult>? validatorRules;
   final TextEditingController? controller;
@@ -54,17 +49,14 @@ class InputFieldProps {
   final TextCapitalization textCapitalization;
   final TextInputType keyboardType;
   final AutovalidateMode autovalidateMode;
-  final bool loosingFocusValidation;
   final int maxLines;
   final int lines;
   final int maxLength;
   final List<TextInputFormatter>? inputFormatters;
   final ValueChanged<String>? onChanged;
-  final Color labelColor;
   final Color textColor;
   final Color hintColor;
   final Color? fillColor;
   final Widget? suffixIcon;
   final InputBorder? inputBorder;
-  final FloatingLabelBehavior? floatingLabelBehavior;
 }

@@ -11,8 +11,15 @@ class AppRouter {
     return navigatorKey.currentState!.overlay!.context;
   }
 
-  void startWith(Widget route) {
-    navigatorKey.currentState?.pushAndRemoveUntil<Widget>(
+  void startWith({
+    required BuildContext context,
+    required Widget route,
+    bool rootNavigator = false,
+  }) {
+    Navigator.of(
+      context,
+      rootNavigator: rootNavigator,
+    ).pushAndRemoveUntil<Widget>(
       MaterialPageRoute(
         builder: (context) => route,
         settings: RouteSettings(
@@ -23,8 +30,15 @@ class AppRouter {
     );
   }
 
-  Future<T?>? goTo<T extends Object?>(Widget route) {
-    return navigatorKey.currentState?.push<T>(
+  Future<T?>? goTo<T extends Object?>({
+    required BuildContext context,
+    required Widget route,
+    bool rootNavigator = false,
+  }) {
+    return Navigator.of(
+      context,
+      rootNavigator: rootNavigator,
+    ).push<T>(
       MaterialPageRoute(
         builder: (context) => route,
         settings: RouteSettings(
@@ -34,11 +48,16 @@ class AppRouter {
     );
   }
 
-  Future<T?>? goToAndRemoveUntil<T extends Object?>(
-    Widget route,
-    RoutePredicate predicate,
-  ) {
-    return navigatorKey.currentState?.pushAndRemoveUntil<T>(
+  Future<T?>? goToAndRemoveUntil<T extends Object?>({
+    required BuildContext context,
+    required Widget route,
+    required RoutePredicate predicate,
+    bool rootNavigator = false,
+  }) {
+    return Navigator.of(
+      context,
+      rootNavigator: rootNavigator,
+    ).pushAndRemoveUntil<T>(
       MaterialPageRoute(
         builder: (context) => route,
         settings: RouteSettings(
@@ -49,36 +68,52 @@ class AppRouter {
     );
   }
 
-  void goToRoot() {
-    navigatorKey.currentState?.popUntil((predicate) => predicate.isFirst);
+  void goToRoot({
+    required BuildContext context,
+    bool rootNavigator = false,
+  }) {
+    Navigator.of(context, rootNavigator: rootNavigator)
+        .popUntil((predicate) => predicate.isFirst);
   }
 
-  void goBackUntil(String name) {
-    navigatorKey.currentState?.popUntil(
+  void goBackUntil({
+    required BuildContext context,
+    required String name,
+    bool rootNavigator = false,
+  }) {
+    Navigator.of(context, rootNavigator: rootNavigator).popUntil(
       (predicate) => predicate.settings.name == name,
     );
   }
 
-  void goBack() {
-    if (navigatorKey.currentState?.canPop() ?? false) {
-      navigatorKey.currentState?.pop();
+  void goBack(
+    BuildContext context, {
+    bool rootNavigator = false,
+  }) {
+    final navState = Navigator.of(context, rootNavigator: rootNavigator);
+    if (navState.canPop()) {
+      navState.pop();
     }
   }
 
-  void showImage(Image image) {
-    navigatorKey.currentState?.push<MaterialPageRoute>(
+  void showImage(BuildContext context, Image image) {
+    Navigator.of(context).push<MaterialPageRoute>(
       TransparentFadeMaterialPageRoute(
         builder: (context) => ImageViewerPage([image]),
       ),
     );
   }
 
-  void showImages({required List<Image> images, int currentIndex = 0}) {
+  void showImages({
+    required BuildContext context,
+    required List<Image> images,
+    int currentIndex = 0,
+  }) {
     if (images.isEmpty) {
       return;
     }
 
-    navigatorKey.currentState?.push<MaterialPageRoute>(
+    Navigator.of(context).push<MaterialPageRoute>(
       TransparentFadeMaterialPageRoute(
         builder: (context) => ImageViewerPage(
           images,

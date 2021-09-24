@@ -15,6 +15,16 @@ class Styles {
     leadingDistribution: TextLeadingDistribution.even,
   );
 
+  static const h4 = TextStyle(
+    fontFamily: fontFamily,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w700,
+    fontSize: 24,
+    height: 1,
+    color: ColorRes.white,
+    leadingDistribution: TextLeadingDistribution.even,
+  );
+
   static const h5 = TextStyle(
     fontFamily: fontFamily,
     fontStyle: FontStyle.normal,

@@ -41,7 +41,10 @@ class LandingPage extends HookWidget {
               const SizedBox(height: 32),
               PrimaryButton(
                 text: Strings.watchFame,
-                onPressed: () => appRouter.startWith(const MainPage()),
+                onPressed: () => appRouter.startWith(
+                  context: context,
+                  route: const MainPage(),
+                ),
                 color: ColorRes.transparent,
                 textColor: ColorRes.primary,
               ),

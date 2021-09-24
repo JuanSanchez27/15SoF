@@ -24,40 +24,51 @@ class GradientButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        gradient: gradient ??
-            const LinearGradient(
-              colors: [ColorRes.bondiBlue, ColorRes.primary],
-              stops: [0, 1],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-            ),
-        borderRadius: BorderRadius.circular(25),
-      ),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          padding: padding,
-          primary: ColorRes.transparent,
-          tapTargetSize: MaterialTapTargetSize.padded,
-            shadowColor: ColorRes.transparent,
-        ),
-        onPressed: onPressed,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (icon != null) ...[
-              SvgPicture.asset(icon!),
-              const SizedBox(width: 24),
-            ],
-            Flexible(
-              child: Text(
-                text,
-                style: Styles.gradientButton.copyWith(color: textColor),
-                textAlign: TextAlign.center,
+    return Opacity(
+      opacity: onPressed == null ? 0.4 : 1,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: gradient ??
+              const LinearGradient(
+                colors: [ColorRes.bondiBlue, ColorRes.primary],
+                stops: [0, 1],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
               ),
+          borderRadius: BorderRadius.circular(25),
+        ),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            padding: padding,
+            primary: ColorRes.transparent,
+            tapTargetSize: MaterialTapTargetSize.padded,
+            shadowColor: ColorRes.transparent,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25),
             ),
-          ],
+          ),
+          onPressed: onPressed,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 4,
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (icon != null) ...[
+                  SvgPicture.asset(icon!),
+                  const SizedBox(width: 24),
+                ],
+                Flexible(
+                  child: Text(
+                    text,
+                    style: Styles.gradientButton.copyWith(color: textColor),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

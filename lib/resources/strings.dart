@@ -90,6 +90,17 @@ class Strings {
 
   static String get guestPageAgreement4 => ' Privacy Policy.';
 
+  //endregion
+
+  //region Login page
+
+  static String get loginMobileTitle => 'Enter Phone Number';
+
+  static String get loginMobileSubtitle =>
+      'A verification code will be sent to you';
+
+  static String get sendCode => 'Send code';
+
 //endregion
 
   //region Home page
