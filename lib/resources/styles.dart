@@ -114,4 +114,14 @@ class Styles {
     color: ColorRes.white,
     leadingDistribution: TextLeadingDistribution.even,
   );
+
+  static const bottomSheetText = TextStyle(
+    fontFamily: fontFamily,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w500,
+    fontSize: 16,
+    height: 1.5,
+    color: ColorRes.white,
+    leadingDistribution: TextLeadingDistribution.even,
+  );
 }

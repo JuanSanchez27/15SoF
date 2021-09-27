@@ -31,6 +31,7 @@ class InputFieldProps {
     this.fillColor = ColorRes.white,
     this.suffixIcon,
     this.inputBorder,
+    this.style,
   });
 
   final bool isEnabled;
@@ -59,4 +60,5 @@ class InputFieldProps {
   final Color? fillColor;
   final Widget? suffixIcon;
   final InputBorder? inputBorder;
+  final TextStyle? style;
 }
