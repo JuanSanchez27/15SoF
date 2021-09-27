@@ -59,7 +59,8 @@ class _InputFieldState extends State<InputField> {
                 textInputAction: widget.props.textInputAction,
                 textAlign: widget.props.textAlign,
                 onSubmitted: _submitField,
-                style: Styles.h4.copyWith(color: widget.props.textColor),
+                style: widget.props.style ??
+                    Styles.h4.copyWith(color: widget.props.textColor),
                 onChanged: (value) {
                   state.didChange(value);
                   widget.props.onChanged?.call(value);
@@ -88,7 +89,6 @@ class _InputFieldState extends State<InputField> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(34),
                   ),
-
                 ),
               ),
               if (state.hasError && !_hasFocus) ...[

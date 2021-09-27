@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fsof/presentation/dialogs/dialogs.dart';
+import 'package:fsof/presentation/login/login_page_hooks.dart';
 import 'package:fsof/presentation/login/widgets/pincode_widget.dart';
 import 'package:fsof/resources/colors.dart';
 import 'package:fsof/resources/strings.dart';
@@ -22,6 +23,7 @@ class LoginCodePage extends HookWidget {
     final code = useState('');
     final errorController = useStreamController<ErrorAnimationType>();
     final codeController = useTextEditingController();
+    final onCodeSubmitted = useCodeSubmittedCallback();
 
     return Scaffold(
       appBar: SofAppBar.withTitleAndBack(title: Strings.enterCode),
@@ -40,8 +42,8 @@ class LoginCodePage extends HookWidget {
             length: 4,
             errorAnimationController: errorController,
             onChanged: (value) => code.value = value,
-            onSubmitted: (code) => showNotImplemented(context),
-            onCompleted: (code) => showNotImplemented(context),
+            onSubmitted: onCodeSubmitted,
+            onCompleted: onCodeSubmitted,
           ),
           const SizedBox(height: 24),
           PrimaryButton(

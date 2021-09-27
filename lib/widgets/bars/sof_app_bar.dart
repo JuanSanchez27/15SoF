@@ -33,13 +33,14 @@ class SofAppBar extends StatelessWidget implements PreferredSizeWidget {
             (bottom?.preferredSize.height ?? 0.0)),
         super(key: key);
 
-  factory SofAppBar.withTitle({required String title}) {
+  factory SofAppBar.withTitle({required String title, Widget? leading}) {
     return SofAppBar(
       title: Text(
         title,
         style: _titleStyle,
       ),
       centerTitle: true,
+      leading: leading,
     );
   }
 

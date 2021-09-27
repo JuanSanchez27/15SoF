@@ -50,6 +50,8 @@ class Strings {
 
   static String get cancel => 'Cancel';
 
+  static String get done => 'Done';
+
   static String get retry => 'Retry';
 
   static String get skip => 'Skip';
@@ -63,6 +65,8 @@ class Strings {
       'Could not connect to the server. Please check your internet connection';
 
   static String get warning => 'Warning';
+
+  static String get gotIt => 'Got It';
 
   //endregion
 
@@ -107,9 +111,23 @@ class Strings {
 
   static String codeSentTo(String to) => 'Code sent to\n$to';
 
+  //endregion
 
+  //region Enter Birthday page
 
-//endregion
+  static String get enterBirthdayTitle => 'Enter Your Birthday';
+
+  static String get enterBirthdayDesc =>
+      'You must be 13 or older to use this app';
+
+  static String get enterBirthdayHint => 'mm/dd/yyyy';
+
+  static String get labelContinue => 'Continue';
+
+  static String get minAgeRequired =>
+      'You must be 13 years or older to use this app';
+
+  //endregion
 
   //region Home page
 

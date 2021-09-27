@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:fsof/presentation/login/enter_birthday_page.dart';
 import 'package:fsof/presentation/login/login_code_page.dart';
 import 'package:fsof/presentation/login/login_mobile_page.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
@@ -16,7 +17,7 @@ void main() {
 
   testGoldens(
     'Login Mobile Page should look correct',
-        (tester) async {
+    (tester) async {
       const page = LoginMobilePage();
 
       await tester.pumpWidgetWithNetworkImageMock(
@@ -36,7 +37,7 @@ void main() {
 
   testGoldens(
     'Login Code Page should look correct',
-        (tester) async {
+    (tester) async {
       const page = LoginCodePage(phoneNumber: '+ 1 (202) 555-0130');
 
       await tester.pumpWidgetWithNetworkImageMock(
@@ -49,6 +50,26 @@ void main() {
       await multiScreenGolden(
         tester,
         '$path/code',
+        devices: devicesWithDifferentTextScales(),
+      );
+    },
+  );
+
+  testGoldens(
+    'Enter Birthday Page should look correct',
+    (tester) async {
+      const page = EnterBirthdayPage();
+
+      await tester.pumpWidgetWithNetworkImageMock(
+        page,
+        wrapper: (child) => TestStateWidget(
+          child: child,
+        ),
+      );
+
+      await multiScreenGolden(
+        tester,
+        '$path/birthday',
         devices: devicesWithDifferentTextScales(),
       );
     },
