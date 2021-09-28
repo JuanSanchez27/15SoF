@@ -1,7 +1,9 @@
+import 'package:dash_kit_control_panel/dash_kit_control_panel.dart';
 import 'package:dash_kit_network/dash_kit_network.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fsof/configuration/app_configuration.dart';
 import 'package:fsof/presentation/home_page/widgets/notifications_icon.dart';
 import 'package:fsof/resources/images.dart';
 
@@ -20,15 +22,19 @@ class FsofTopPanel extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 33,
+      height: 40,
       child: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 14),
+        padding: const EdgeInsets.only(left: 20, right: 6),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SvgPicture.asset(
-              Images.sofLogo,
-              alignment: Alignment.centerLeft,
+            ControlPanelGate(
+              isEnabled: AppConfiguration.controlPanelEnabled,
+              child: SvgPicture.asset(
+                Images.sofLogo,
+                alignment: Alignment.centerLeft,
+                height: 32,
+              ),
             ),
             isRegistered
                 ? NotificationsIcon(

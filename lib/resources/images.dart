@@ -20,6 +20,7 @@ class Images {
   static const icLike = '$svgImages/ic_like.svg';
   static const icNotification = '$svgImages/ic_notification.svg';
   static const icPhone = '$svgImages/ic_phone.svg';
+  static const icPlay = '$svgImages/ic_play.svg';
   static const icSearch = '$svgImages/ic_search.svg';
   static const icShare = '$svgImages/ic_share.svg';
   static const icRemove = '$svgImages/ic_remove.svg';
