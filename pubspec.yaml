@@ -44,6 +44,8 @@ dependencies:
 
   video_player: ^2.2.5
 
+  webview_flutter: ^2.1.0
+
 dev_dependencies:
   build_runner: ^2.1.2
   flutter_launcher_icons: ^0.9.2
@@ -60,6 +62,7 @@ flutter:
     - assets/images/svg/
     - assets/images/
     - assets/images/png/
+    - assets/html/
   fonts:
     - family: Ubuntu
       fonts:

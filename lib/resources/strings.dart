@@ -94,6 +94,10 @@ class Strings {
 
   static String get guestPageAgreement4 => ' Privacy Policy.';
 
+  static String get termsOfUseTitle => 'Official Rules';
+
+  static String get privacyPolicyTitle => 'Privacy Policy';
+
   //endregion
 
   //region Login page
