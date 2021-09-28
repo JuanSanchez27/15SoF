@@ -51,7 +51,7 @@ class SofAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: _titleStyle,
       ),
       centerTitle: true,
-      leading: const SofBackButton(color: ColorRes.primary),
+      leading: const SofBackButton(color: ColorRes.white),
     );
   }
 

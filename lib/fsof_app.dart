@@ -24,6 +24,11 @@ class FsofApp extends StatefulWidget {
 class FsofAppState extends State<FsofApp> {
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = ThemeData(
+      fontFamily: fontFamily,
+      scaffoldBackgroundColor: ColorRes.ebonyClay,
+    );
+
     return DropFocus(
       child: Application(
         child: MaterialApp(
@@ -41,9 +46,9 @@ class FsofAppState extends State<FsofApp> {
             FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
           ],
           home: const LandingPage(),
-          theme: ThemeData(
-            fontFamily: fontFamily,
-            scaffoldBackgroundColor: ColorRes.ebonyClay,
+          theme: theme.copyWith(
+            colorScheme:
+                theme.colorScheme.copyWith(primary: ColorRes.primary),
           ),
         ),
       ),

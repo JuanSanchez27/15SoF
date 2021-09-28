@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fsof/navigation/app_router.dart';
 import 'package:fsof/presentation/dialogs/dialogs.dart';
 import 'package:fsof/presentation/login/login_mobile_page.dart';
+import 'package:fsof/presentation/web_view/web_view_page.dart';
 import 'package:fsof/resources/images.dart';
 import 'package:fsof/resources/strings.dart';
 import 'package:fsof/resources/styles.dart';
@@ -100,12 +101,12 @@ class AccountGuestPage extends StatelessWidget {
                     Strings.guestPageAgreement1,
                     ClickableText(
                       text: Strings.guestPageAgreement2,
-                      onPressed: () => showNotImplemented(context),
+                      onPressed: () => _onTermsOfUsePressed(context),
                     ),
                     Strings.guestPageAgreement3,
                     ClickableText(
                       text: Strings.guestPageAgreement4,
-                      onPressed: () => showNotImplemented(context),
+                      onPressed: () => _onPrivacyPolicyPressed(context),
                     ),
                   ],
                   maxLines: 2,
@@ -118,5 +119,13 @@ class AccountGuestPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _onTermsOfUsePressed(BuildContext context) {
+    appRouter.goTo(context: context, route: WebViewPage.termsOfUse());
+  }
+
+  void _onPrivacyPolicyPressed(BuildContext context) {
+    appRouter.goTo(context: context, route: WebViewPage.privacyPolicy());
   }
 }
