@@ -22,15 +22,13 @@ class NotificationsIcon extends HookWidget {
         IconButton(
           onPressed: onNotificationsPressed,
           icon: SvgPicture.asset(Images.icNotification),
-          padding: EdgeInsets.zero,
-          constraints: const BoxConstraints(),
         ),
         if (hasNotifications)
           Positioned(
             right: 0,
             top: 0,
             child: Transform.translate(
-              offset: const Offset(3, 0),
+              offset: const Offset(-11, 8),
               child: Container(
                 width: 11,
                 height: 11,

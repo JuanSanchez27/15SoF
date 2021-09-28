@@ -37,13 +37,13 @@ class VideoControls extends HookWidget {
             onFavoritePressed?.call();
           },
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 8),
         LabeledIconButton(
           image: Images.icComment,
           label: '6 230',
           onPressed: onCommentsPressed,
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 8),
         LabeledIconButton(
           image: Images.icShare,
           onPressed: onSharePressed,

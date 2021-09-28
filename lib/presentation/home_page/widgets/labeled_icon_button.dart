@@ -23,8 +23,6 @@ class LabeledIconButton extends HookWidget {
     return Column(
       children: [
         IconButton(
-          padding: EdgeInsets.zero,
-          constraints: const BoxConstraints(),
           iconSize: 30,
           onPressed: onPressed,
           icon: SvgPicture.asset(
@@ -32,14 +30,13 @@ class LabeledIconButton extends HookWidget {
             color: iconColor,
           ),
         ),
-        if (label != null)
-          Padding(
-            padding: const EdgeInsets.only(top: 2),
-            child: Text(
-              label!,
-              style: Styles.primaryButton,
-            ),
+        Padding(
+          padding: const EdgeInsets.only(top: 2),
+          child: Text(
+            label ?? '',
+            style: Styles.primaryButton,
           ),
+        ),
       ],
     );
   }
