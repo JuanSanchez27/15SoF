@@ -5,6 +5,7 @@ import 'package:fsof/utils/validators.dart';
 
 class InputFieldProps {
   const InputFieldProps({
+    required this.focusNode,
     this.isEnabled = true,
     this.hint,
     this.onSubmitted,
@@ -12,7 +13,6 @@ class InputFieldProps {
     this.controller,
     this.contentPadding,
     this.textAlign = TextAlign.start,
-    this.focusNode,
     this.nextFocusNode,
     this.textInputAction = TextInputAction.done,
     this.obscureText = false,
@@ -27,7 +27,7 @@ class InputFieldProps {
     this.inputFormatters,
     this.onChanged,
     this.textColor = ColorRes.ebonyClay,
-    this.hintColor = ColorRes.black,
+    this.hintColor = ColorRes.dustyGray,
     this.fillColor = ColorRes.white,
     this.suffixIcon,
     this.inputBorder,
@@ -41,7 +41,7 @@ class InputFieldProps {
   final TextEditingController? controller;
   final EdgeInsetsGeometry? contentPadding;
   final TextAlign textAlign;
-  final FocusNode? focusNode;
+  final FocusNode focusNode;
   final FocusNode? nextFocusNode;
   final TextInputAction textInputAction;
   final bool obscureText;

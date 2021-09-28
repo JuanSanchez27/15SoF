@@ -45,9 +45,9 @@ class EnterBirthdayPage extends HookWidget {
       appBar: SofAppBar.withTitle(
         title: Strings.enterBirthdayTitle,
         leading: IconButton(
-          onPressed: () => appRouter.startWith(
+          onPressed: () => appRouter.goBackUntil(
             context: context,
-            route: const AccountGuestPage(),
+            name: (AccountGuestPage).toString(),
           ),
           icon: SvgPicture.asset(Images.icClose),
         ),

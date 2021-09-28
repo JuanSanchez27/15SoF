@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fsof/navigation/app_router.dart';
 import 'package:fsof/presentation/dialogs/dialogs.dart';
+import 'package:fsof/presentation/login/login_email_page.dart';
 import 'package:fsof/presentation/login/login_mobile_page.dart';
 import 'package:fsof/resources/images.dart';
 import 'package:fsof/resources/strings.dart';
@@ -86,7 +87,10 @@ class AccountGuestPage extends StatelessWidget {
                   Strings.guestPageRegistered1,
                   ClickableText(
                     text: Strings.guestPageRegistered2,
-                    onPressed: () => showNotImplemented(context),
+                    onPressed: () => appRouter.goTo(
+                      context: context,
+                      route: const LoginEmailPage(),
+                    ),
                   ),
                   Strings.guestPageRegistered3,
                 ],

@@ -12,4 +12,5 @@ class ColorRes {
   static const bondiBlue = Color(0xFF008BB7);
   static const brightGray = Color(0xFF303643);
   static const dodgerBlue = Color(0xFF47A7FF);
+  static const dustyGray = Color(0xFF979797);
 }
