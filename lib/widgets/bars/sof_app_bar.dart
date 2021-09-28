@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fsof/configuration/app_configuration.dart';
 import 'package:fsof/resources/colors.dart';
 import 'package:fsof/resources/styles.dart';
-import 'package:fsof/widgets/buttons/sof_back_button.dart';
+import 'package:fsof/widgets/buttons/fsof_back_button.dart';
 
 const _titleStyle = TextStyle(
   fontFamily: fontFamily,

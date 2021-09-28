@@ -28,7 +28,7 @@ class VideoDetails extends HookWidget {
       children: [
         Row(
           children: [
-            const CachedProfileImage(imageUrl: mimojiUrl, size: 26),
+            const CachedProfileImage(imageUrl: mimojiUrl, size: 32),
             const SizedBox(width: 12),
             Flexible(
               child: Text(

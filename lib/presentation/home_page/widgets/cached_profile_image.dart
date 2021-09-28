@@ -33,7 +33,7 @@ class CachedProfileImage extends StatelessWidget {
             ? Container()
             : Container(
                 decoration: const BoxDecoration(shape: BoxShape.circle),
-                clipBehavior: Clip.hardEdge,
+                clipBehavior: Clip.antiAlias,
                 child: CachedNetworkImage(
                   imageUrl: imageUrl,
                   placeholder: (context, url) =>
