@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fsof/presentation/home_page/handlers/video_feed_manager.dart';
 import 'package:fsof/presentation/home_page/widgets/video_bottom_panel.dart';
+import 'package:fsof/presentation/home_page/widgets/video_play_control.dart';
 import 'package:fsof/resources/colors.dart';
 import 'package:fsof/resources/images.dart';
 import 'package:fsof/utils/extensions.dart';
-import 'package:fsof/widgets/buttons/fsof_play_button.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoFeedPlayer extends StatefulWidget {
@@ -67,7 +66,23 @@ class _VideoFeedPlayerState extends State<VideoFeedPlayer> {
                           ? _buildTestWidget()
                           : Column(
                               children: [
-                                _buildVideoContent(context),
+                                Expanded(
+                                  child: FittedBox(
+                                    fit: BoxFit.cover,
+                                    // ignore: lines_longer_than_80_chars
+                                    // TODO(Viktor): Find the way to avoid SizedBox with 1 height.
+                                    child: SizedBox(
+                                      width: manager
+                                          .getController(index)!
+                                          .value
+                                          .aspectRatio,
+                                      height: 1,
+                                      child: VideoPlayer(
+                                        manager.getController(index)!,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                                 VideoProgressIndicator(
                                   controller,
                                   colors: VideoProgressColors(
@@ -82,7 +97,7 @@ class _VideoFeedPlayerState extends State<VideoFeedPlayer> {
                               ],
                             ),
                       if (!PlatformEnvironmentExtension.isTest)
-                        _PlayingControl(controller: controller),
+                        VideoPlayControl(controller: controller),
                     ],
                   ),
                   Positioned(
@@ -108,49 +123,6 @@ class _VideoFeedPlayerState extends State<VideoFeedPlayer> {
               ),
             ),
           ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildVideoContent(BuildContext context) {
-    return Expanded(
-      child: FittedBox(
-        fit: BoxFit.cover,
-        child: SizedBox(
-          width: manager.getController(index)!.value.aspectRatio,
-          height: 1,
-          child: VideoPlayer(manager.getController(index)!),
-        ),
-      ),
-    );
-  }
-}
-
-class _PlayingControl extends HookWidget {
-  const _PlayingControl({required this.controller, Key? key}) : super(key: key);
-
-  final VideoPlayerController controller;
-
-  @override
-  Widget build(BuildContext context) {
-    final isVideoPlaying = useListenable(controller);
-
-    return Stack(
-      children: <Widget>[
-        AnimatedSwitcher(
-          duration: const Duration(milliseconds: 50),
-          reverseDuration: const Duration(milliseconds: 200),
-          child: isVideoPlaying.value.isPlaying
-              ? const SizedBox.shrink()
-              : const Center(child: FsofPlayButton()),
-        ),
-        GestureDetector(
-          onTap: () {
-            isVideoPlaying.value.isPlaying
-                ? controller.pause()
-                : controller.play();
-          },
         ),
       ],
     );

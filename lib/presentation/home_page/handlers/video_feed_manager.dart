@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:fsof/utils/exceptions.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoFeedManager {
@@ -11,16 +12,12 @@ class VideoFeedManager {
     'https://15sof-cdn-accountvideos-qa03.azureedge.net/account-videos/dcb66f8c-1fc7-40e2-86a9-56b93afc37c5.mp4',
   ];
 
-  final outOfBoundsException = Exception('Video index is out of bounds');
-
   final Map<int, VideoPlayerController> _controllers = {};
 
   VideoPlayerController? getController(int index) => _controllers[index];
 
   Future initializeControllerAtIndex(int index) async {
-    if (index >= videos.length || index < 0) {
-      throw outOfBoundsException;
-    }
+    checkIndexBounds(index);
 
     final _controller = VideoPlayerController.network(videos[index]);
     await _controller.setLooping(true);
@@ -30,9 +27,7 @@ class VideoFeedManager {
   }
 
   Future<void> disposeControllerAtIndex(int index) async {
-    if (index >= videos.length || index < 0) {
-      throw outOfBoundsException;
-    }
+    checkIndexBounds(index);
 
     final _controller = _controllers[index]!;
     _controllers.remove(index);
@@ -42,7 +37,7 @@ class VideoFeedManager {
 
   Future<void> _playVideoAtIndex(int index) async {
     if (index >= videos.length || index < 0) {
-      throw outOfBoundsException;
+      throw IndexOutOfBoundsException;
     }
 
     await _controllers[index]!.play();
@@ -50,9 +45,7 @@ class VideoFeedManager {
   }
 
   Future<void> _stopVideoAtIndex(int index) async {
-    if (index >= videos.length || index < 0) {
-      throw outOfBoundsException;
-    }
+    checkIndexBounds(index);
 
     final _controller = _controllers[index]!;
     await _controller.pause();
@@ -62,9 +55,16 @@ class VideoFeedManager {
 
   Future<void> onVideoChanged({required newPageIndex}) async {
     await Future.wait(
-      _controllers.keys.map((key) => _stopVideoAtIndex(key)),
-      //_controllers.values.map((controller) => controller.pause()),
+      _controllers.keys
+          .where((key) => key != newPageIndex)
+          .map((key) => _stopVideoAtIndex(key)),
     );
     await _playVideoAtIndex(newPageIndex);
+  }
+
+  void checkIndexBounds(int index) {
+    if (index >= videos.length || index < 0) {
+      throw IndexOutOfBoundsException;
+    }
   }
 }
