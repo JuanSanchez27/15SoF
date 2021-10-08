@@ -117,6 +117,22 @@ class Strings {
 
   //endregion
 
+  //region Login page
+
+  static String get loginEmailTitle => 'Email Log In';
+
+  static String get loginEmailSubtitle => 'Enter your email address';
+
+  static String get loginEmailPasswordSubtitle => 'Enter your password';
+
+  static String get email => 'Email';
+
+  static String get password => 'Password';
+
+  static String get forgotPassword => 'Forgot password?';
+
+  //endregion
+
   //region Enter Birthday page
 
   static String get enterBirthdayTitle => 'Enter Your Birthday';

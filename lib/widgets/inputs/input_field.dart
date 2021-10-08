@@ -22,19 +22,19 @@ class _InputFieldState extends State<InputField> {
   final key = GlobalKey<FormFieldState>();
   bool isObscure = false;
 
-  bool get _hasFocus => widget.props.focusNode?.hasFocus ?? false;
+  bool get _hasFocus => widget.props.focusNode.hasFocus;
 
   @override
   void initState() {
     super.initState();
-    widget.props.focusNode?.addListener(_changeFieldFocus);
+    widget.props.focusNode.addListener(_changeFieldFocus);
 
     isObscure = widget.props.obscureText;
   }
 
   @override
   void dispose() {
-    widget.props.focusNode?.removeListener(_changeFieldFocus);
+    widget.props.focusNode.removeListener(_changeFieldFocus);
     super.dispose();
   }
 
@@ -45,7 +45,7 @@ class _InputFieldState extends State<InputField> {
         enabled: widget.props.isEnabled,
         initialValue: widget.props.controller?.text ?? '',
         validator: _validate,
-        onSaved: (value) => widget.props.focusNode?.unfocus(),
+        onSaved: (value) => widget.props.focusNode.unfocus(),
         autovalidateMode: widget.props.autovalidateMode,
         builder: (state) {
           return Column(
@@ -60,7 +60,7 @@ class _InputFieldState extends State<InputField> {
                 textAlign: widget.props.textAlign,
                 onSubmitted: _submitField,
                 style: widget.props.style ??
-                    Styles.h4.copyWith(color: widget.props.textColor),
+                    Styles.p1.copyWith(color: widget.props.textColor),
                 onChanged: (value) {
                   state.didChange(value);
                   widget.props.onChanged?.call(value);
@@ -88,6 +88,11 @@ class _InputFieldState extends State<InputField> {
                   contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(34),
+                  ),
+                  hintText: widget.props.hint,
+                  hintStyle: Styles.p1.copyWith(
+                    color: widget.props.hintColor,
+                    height: 1,
                   ),
                 ),
               ),
@@ -117,7 +122,7 @@ class _InputFieldState extends State<InputField> {
   }
 
   void _submitField(String value) {
-    widget.props.focusNode?.unfocus();
+    widget.props.focusNode.unfocus();
 
     if (widget.props.nextFocusNode != null) {
       FocusScope.of(context).requestFocus(widget.props.nextFocusNode);

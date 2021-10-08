@@ -22,6 +22,7 @@ class LoginMobilePage extends HookWidget {
   Widget build(BuildContext context) {
     final plugin = useMemoized(() => PhoneNumberUtil());
     final region = useState(regions.last);
+    final focusNode = useFocusNode();
     final textController = useMemoized(() {
       return PhoneNumberEditingController.fromValue(
         plugin,
@@ -32,12 +33,7 @@ class LoginMobilePage extends HookWidget {
     }, [region.value]);
     final onCountrySelectorPressed = useCountrySelectorCallback(region);
     final isValid = useState(false);
-    final text = useState('');
-    useEffect(() {
-      final func = () => text.value = textController.text;
-      textController.addListener(func);
-      return () => textController.removeListener(func);
-    }, [region.value]);
+    final phone = useListenable(textController);
     final onSubmitPressed = useOnSubmitCallback(
       phone: textController.text,
       code: '${region.value.prefix}',
@@ -100,9 +96,11 @@ class LoginMobilePage extends HookWidget {
                     ],
                     textAlign: TextAlign.center,
                     maxLength: 16,
+                    focusNode: focusNode,
+                    style: Styles.h4.copyWith(color: ColorRes.ebonyClay),
                   ),
                 ),
-                if (text.value.isNotEmpty)
+                if (phone.value.text.isNotEmpty)
                   Positioned(
                     top: 0,
                     right: 4,

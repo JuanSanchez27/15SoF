@@ -12,19 +12,21 @@ class InputFieldUiKitBuilder extends UiKitBuilder {
   void buildComponentStates() {
     build(
       'Input with text',
-      const InputField(
+      InputField(
         props: InputFieldProps(
           hint: 'Hint',
+          focusNode: FocusNode(),
         ),
       ),
     );
     build(
       'Input with obscure text',
-      const InputField(
+      InputField(
         props: InputFieldProps(
           hint: 'Hint',
           keyboardType: TextInputType.number,
           obscureText: true,
+          focusNode: FocusNode(),
         ),
       ),
     );
@@ -34,6 +36,7 @@ class InputFieldUiKitBuilder extends UiKitBuilder {
         props: InputFieldProps(
           hint: 'Hint',
           controller: TextEditingController(text: 'Email'),
+          focusNode: FocusNode(),
         ),
       ),
     );
@@ -45,25 +48,28 @@ class InputFieldUiKitBuilder extends UiKitBuilder {
           controller: TextEditingController(text: 'Email'),
           autovalidateMode: AutovalidateMode.always,
           validatorRules: [FormatResult((_) => true, 'Wrong email')],
+          focusNode: FocusNode(),
         ),
       ),
     );
     build(
       'Multiline',
-      const InputField(
+      InputField(
         props: InputFieldProps(
           hint: 'Hint',
           maxLines: 2,
+          focusNode: FocusNode(),
         ),
       ),
     );
     build(
       'Another border',
-      const InputField(
+      InputField(
         props: InputFieldProps(
           hint: 'Hint',
           maxLines: 1,
-          inputBorder: OutlineInputBorder(),
+          inputBorder: const OutlineInputBorder(),
+          focusNode: FocusNode(),
         ),
       ),
     );

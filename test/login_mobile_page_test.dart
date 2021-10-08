@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fsof/presentation/login/enter_birthday_page.dart';
 import 'package:fsof/presentation/login/login_code_page.dart';
+import 'package:fsof/presentation/login/login_email_page.dart';
 import 'package:fsof/presentation/login/login_mobile_page.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'utils/devices.dart';
@@ -14,6 +15,26 @@ void main() {
   });
 
   const path = 'login_page';
+
+  testGoldens(
+    'Login Email Page should look correct',
+    (tester) async {
+      const page = LoginEmailPage();
+
+      await tester.pumpWidgetWithNetworkImageMock(
+        page,
+        wrapper: (child) => TestStateWidget(
+          child: child,
+        ),
+      );
+
+      await multiScreenGolden(
+        tester,
+        '$path/email',
+        devices: devicesWithDifferentTextScales(),
+      );
+    },
+  );
 
   testGoldens(
     'Login Mobile Page should look correct',
