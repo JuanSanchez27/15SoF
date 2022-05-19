@@ -1,6 +1,5 @@
 import 'package:dash_kit_control_panel/dash_kit_control_panel.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:fsof/navigation/app_router.dart';
 import 'package:fsof/presentation/landing/landing_page.dart';
@@ -43,7 +42,7 @@ class FsofAppState extends State<FsofApp> {
           ),
           navigatorKey: appRouter.navigatorKey,
           navigatorObservers: [
-            FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
+            FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
           ],
           home: const LandingPage(),
           theme: theme.copyWith(

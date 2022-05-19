@@ -7,6 +7,7 @@ import 'package:dash_kit_network/dash_kit_network.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:fsof/app/app_state.dart';
 import 'package:fsof/app/store/store.dart';
 import 'package:fsof/configuration/api_client.dart';
@@ -31,7 +32,8 @@ Future<void> main({
   configureErrorReporting();
 
   final alice = Alice();
-  final tokenStorage = TokenStorage();
+  const storage = FlutterSecureStorage();
+  const tokenStorage = TokenStorage(storage);
 
   final sharedPreferences = await SharedPreferences.getInstance();
 

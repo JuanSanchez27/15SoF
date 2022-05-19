@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fsof/resources/styles.dart';
 import 'package:fsof/widgets/bars/sof_app_bar.dart';
 import 'package:phone_number/phone_number.dart';

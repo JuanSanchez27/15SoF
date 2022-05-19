@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fsof/resources/colors.dart';
 import 'package:fsof/resources/styles.dart';

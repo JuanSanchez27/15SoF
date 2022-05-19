@@ -45,7 +45,9 @@ class WebViewPage extends HookWidget {
       }
 
       rootBundle.loadString(path).then((value) => fileText.value = value);
-    });
+
+      return;
+    }, []);
 
     return Scaffold(
       appBar: SofAppBar.withTitleAndBack(title: title),

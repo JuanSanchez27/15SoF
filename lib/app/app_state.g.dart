@@ -13,11 +13,11 @@ class _$AppState extends AppState {
   final BuiltMap<Object, OperationState> operationsState;
 
   factory _$AppState([void Function(AppStateBuilder)? updates]) =>
-      (new AppStateBuilder()..update(updates)).build();
+      (new AppStateBuilder()..update(updates))._build();
 
   _$AppState._({required this.template, required this.operationsState})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(template, 'AppState', 'example');
+    BuiltValueNullFieldError.checkNotNull(template, 'AppState', 'template');
     BuiltValueNullFieldError.checkNotNull(
         operationsState, 'AppState', 'operationsState');
   }
@@ -45,7 +45,7 @@ class _$AppState extends AppState {
   @override
   String toString() {
     return (newBuiltValueToStringHelper('AppState')
-          ..add('example', template)
+          ..add('template', template)
           ..add('operationsState', operationsState))
         .toString();
   }
@@ -88,7 +88,9 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   }
 
   @override
-  _$AppState build() {
+  AppState build() => _build();
+
+  _$AppState _build() {
     _$AppState _$result;
     try {
       _$result = _$v ??
@@ -98,7 +100,7 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'example';
+        _$failedField = 'template';
         template.build();
         _$failedField = 'operationsState';
         operationsState.build();
@@ -113,4 +115,4 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new

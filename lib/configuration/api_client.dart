@@ -1,6 +1,5 @@
 import 'package:alice_lightweight/alice.dart';
 import 'package:dash_kit_network/dash_kit_network.dart';
-import 'package:dio/dio.dart';
 import 'package:fsof/api_client/fsof_api_client.dart';
 import 'package:fsof/api_client/fsof_refresh_tokens_delegate.dart';
 import 'package:fsof/configuration/fsof_api_environment.dart';
