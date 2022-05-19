@@ -8,5 +8,5 @@ typedef Dispatcher = Future<void> Function(BaseAction);
 Dispatcher useDispatcher() {
   final context = useContext();
   final storeProvider = StoreProvider.of<AppState>(context, 'dispatcher');
-  return storeProvider.dispatch;
+  return storeProvider.dispatchAsync;
 }

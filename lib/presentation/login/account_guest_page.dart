@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fsof/navigation/app_router.dart';
-import 'package:fsof/presentation/dialogs/dialogs.dart';
 import 'package:fsof/presentation/login/login_email_page.dart';
 import 'package:fsof/presentation/login/login_mobile_page.dart';
 import 'package:fsof/presentation/web_view/web_view_page.dart';

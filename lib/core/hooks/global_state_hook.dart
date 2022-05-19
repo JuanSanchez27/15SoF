@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:async_redux/async_redux.dart' hide Store;
 import 'package:dash_kit_core/dash_kit_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' hide Store;
