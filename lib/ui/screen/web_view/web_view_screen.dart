@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fsof/generated/l10n.dart';
 import 'package:fsof/ui/utils/constants/constants.dart';
@@ -36,15 +38,7 @@ class WebViewScreen extends HookWidget {
   Widget build(BuildContext context) {
     final isLoading = useState(true);
     final fileText = useState('');
-    /*useEffect(() {
-      if (Platform.isAndroid) {
-        WebView.platform = SurfaceAndroidWebView();
-      }
-
-      rootBundle.loadString(path).then((value) => fileText.value = value);
-
-      return;
-    }, []);*/
+    
 
     return Scaffold(
       appBar: FsofAppBar.withTitleAndBack(title: title),
@@ -56,6 +50,14 @@ class WebViewScreen extends HookWidget {
           child: fileText.value.isEmpty
               ? const SizedBox()
               : WebView(
+                javascriptMode: JavascriptMode.unrestricted,
+                javascriptChannels: <JavascriptChannel>{
+                  JavascriptChannel(
+                      name: 'MessageInvoker',
+                      onMessageReceived: (s) {
+                      print(s);
+                      }),
+                },
                   initialUrl: Uri.dataFromString(
                     fileText.value,
                     mimeType: 'text/html',

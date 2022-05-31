@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:fsof/core/models/result.dart';
+import 'package:fsof/ui/utils/constants/general.dart';
 
 enum Method {
   delete,
@@ -64,6 +65,8 @@ class ApiUtils{
     //Bearer authorization header
     ///TODO token api
     //_headers[kAuthorizationHeader] = '$kBearer $_tokenAuthorization';
+    _headers[kApiSecretKey] = "dVBprfsHsIr8Z5aCoVua";
+    _headers[kApiClientId] = "c789e448-1d21-48e9-a51a-d4c7b995af53";
 
     //Additional headers
     _headers.addAll(headers ?? {});

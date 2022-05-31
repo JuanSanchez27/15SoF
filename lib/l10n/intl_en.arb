@@ -34,17 +34,26 @@
   "sLoginMobileSubtitle" : "A verification code will be sent to you",
   "sLoginMobileSendCode" : "Send code",
 
+
   "@_LOGIN_CODE_SCREEN": {
   },
   "sLoginCodeEnterCode" : "Enter code",
   "sLoginCodeCodeSentTo" : "Code sent to\n${to}",
   "sLoginCodeSendNewCode" : "Send new code",
 
+
   "@_LOGIN_ENTER_BIRTHDAY_SCREEN": {
   },
   "sLoginEnterBirthdayTitle" : "Enter Your Birthday",
   "sLoginEnterBirthdayDesc" : "You must be 13 or older to use this app",
   "sLoginEnterBirthdayHint" : "mm/dd/yyyy",
+
+   "@_LOGIN_ENTER_PARENTAL_CONSENTING_INITIAL_SCREEN": {
+   },
+   "sLoginParentalConsentTitle": " Since you're younger than 18, parental consent is required.",
+   "sLoginParentalContentSubtitle": "Your parental or legal guardian must enter their initials to authorize your use.",
+   "sLoginParentalConsentingInitial" : "Consenting parent initials",
+
 
   "@_LOGIN_ACCOUNT_GUEST_SCREEN": {
   },
@@ -78,6 +87,7 @@
   "gRetry" : "Retry",
   "gSkip" : "Skip",
   "gContinue" : "Continue",
+  "gLoading" : "Loading",
 
   "@_MESSAGE": {
   },
@@ -89,7 +99,9 @@
   "eCommonError" : "An error occurred while performing the operation",
   "eTimeoutError" : "Operation timeout exceeded",
   "eNoInternetError" : "Could not connect to the server. Please check your internet connection",
-
+  "eInvalidPhoneNumber" : "Invalid phone number",
+  "eIncorrectCode" : "Incorrect verification code",
+  "eNumbersAttendsExceedLimit": "Numbers of attempts to verify phone number exceeded the limit. \nPlease try again in 1 hour.",
 
 
   "@_TODO": {

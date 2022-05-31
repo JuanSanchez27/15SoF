@@ -50,7 +50,7 @@ class Styles {
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
     fontSize: kDimens12,
-    height: kDimens2,
+    height: kDimens0,
     color: kWhite100,
     leadingDistribution: TextLeadingDistribution.even,
   );

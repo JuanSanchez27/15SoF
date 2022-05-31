@@ -25,7 +25,6 @@ class EnterBirthdayScreen extends HookWidget {
     final date = useState<DateTime?>(null);
     final textController = useTextEditingController();
     final focusNode = useFocusNode();
-    final onBirthdaySubmitPressed = useBirthdaySubmitCallback(date.value);
     final onBirthdayPressed = useBirthdayCallback((newDate) {
       if (newDate != null) {
         textController.text = formatDate(newDate);
@@ -78,7 +77,7 @@ class EnterBirthdayScreen extends HookWidget {
             padding: const EdgeInsets.symmetric(horizontal: kDimens34),
             child: FsofGradientButton(
               text: I18n.of(context).gContinue,
-              onPressed: onBirthdaySubmitPressed,
+              onPressed: useBirthdaySubmitCallback(date.value),
             ),
           ),
         ],

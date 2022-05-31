@@ -16,7 +16,8 @@ class MinAgeBottomSheet extends StatelessWidget {
           padding: const EdgeInsets.all(kDimens36),
           child: Text(
             I18n.of(context).wMinAgeRequired,
-            style: Styles.bottomSheetText.copyWith(color: kBackgroundColor),
+            style: Styles.bottomSheetText.copyWith(color: kBackgroundColor,),
+            textAlign: TextAlign.center,
           ),
         ),
         FsofGradientButton(
