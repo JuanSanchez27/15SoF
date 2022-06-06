@@ -1,0 +1,106 @@
+{
+  "sHomeName": "name",
+  "sHomeUrl": "url",
+  "sTitle" : "15SoF",
+
+  "@_HOME_SCREEN": {
+  },
+  "sHomeFollow" : "Follow",
+  "sHomeFollowing" : "Following",
+
+  "@_LANDING_SCREEN": {
+  },
+  "sLandingGetFameTitle" : "Get Fame",
+  "sLandingGetFameSubtitle" :"Receive your video board and TV appearances",
+  "sLandingCreateFameTitle" : "Create Fame",
+  "sLandingCreateFameSubtitle" : "Get instant rewards by joining a challenge",
+  "sLandingWatchFame" : "Watch Fame",
+
+  "@_LOGIN_SCREEN": {
+  },
+  "sLoginEmail" : "Email",
+  "sLoginPassword" : "Password",
+  "sLoginForgotPassword" : "Forgot password?",
+
+  "@_LOGIN_EMAIL_SCREEN": {
+  },
+  "sLoginEmailTitle" : "Email Log In",
+  "sLoginEmailSubtitle" : "Enter your email address",
+  "sLoginEmailPasswordSubtitle" : "Enter your password",
+
+  "@_LOGIN_MOBILE_SCREEN": {
+  },
+  "sLoginMobileTitle" : "Enter Phone Number",
+  "sLoginMobileSubtitle" : "A verification code will be sent to you",
+  "sLoginMobileSendCode" : "Send code",
+
+  "@_LOGIN_CODE_SCREEN": {
+  },
+  "sLoginCodeEnterCode" : "Enter code",
+  "sLoginCodeCodeSentTo" : "Code sent to\n${to}",
+  "sLoginCodeSendNewCode" : "Send new code",
+
+  "@_LOGIN_ENTER_BIRTHDAY_SCREEN": {
+  },
+  "sLoginEnterBirthdayTitle" : "Enter Your Birthday",
+  "sLoginEnterBirthdayDesc" : "You must be 13 or older to use this app",
+  "sLoginEnterBirthdayHint" : "mm/dd/yyyy",
+
+  "@_LOGIN_ACCOUNT_GUEST_SCREEN": {
+  },
+  "sLoginGuestPageTitle" : "The future of memories",
+  "sLoginGuestPageR" : "®",
+  "sLoginGuestPageContinue" : "Or Continue with",
+  "sLoginGuestPageRegistered1" : "Registered by email?",
+  "sLoginGuestPageRegistered2" : " Log In ",
+  "sLoginGuestPageRegistered3" : "here.",
+  "sLoginGuestPageLogin" : "Continue with Phone",
+  "sLoginGuestPageAgreement1" : "By continuing, I accept the",
+  "sLoginGuestPageAgreement2" : " Official Rules ",
+  "sLoginGuestPageAgreement3" : "&",
+  "sLoginGuestPageAgreement4" : " Privacy Policy.",
+
+  "@_WEB_VIEW_SCREEN": {
+  },
+  "sWebViewPrivacyPolicyTitle" : "Privacy Policy",
+  "sWebViewTermsOfUseTitle" : "Official Rules",
+
+  "@_MIN_AGE_WIDGET": {
+  },
+  "wMinAgeRequired" : "You must be 13 years or older to use this app",
+  "wMinAgeGotIt" : "Got It",
+
+  "@_GENERAL": {
+  },
+  "gCancel" : "Cancel",
+  "gOk" : "OK",
+  "gDone" : "Done",
+  "gRetry" : "Retry",
+  "gSkip" : "Skip",
+  "gContinue" : "Continue",
+
+  "@_MESSAGE": {
+  },
+  "mInDevelopment" : "This functionality is in development",
+
+  "@_ERRORS": {
+  },
+  "eWarning" : "Warning",
+  "eCommonError" : "An error occurred while performing the operation",
+  "eTimeoutError" : "Operation timeout exceeded",
+  "eNoInternetError" : "Could not connect to the server. Please check your internet connection",
+
+
+
+  "@_TODO": {
+  },
+  "pressPlsButton" : "Press Plus button",
+  "skipCount" : "Skip Count",
+  "fieldIsRequired" : "This field is required",
+  "incorrectEmail" : "Please enter a valid email address",
+  "incorrectPassword":"The password must be a minimum of 8 \n characters with at least one number, lowercase and uppercase letters. \n Special characters [! @ # $ & ( ) . + , / -] are allowed",
+  "incorrectZipCode" : "Please enter a valid zip code",
+  "incorrectPhoneNumber":"Incorrect phone number format",
+  "passwordAreDifferent":"Passwords do not match"
+
+}
