@@ -3,8 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:fsof/generated/l10n.dart';
 import 'package:fsof/ui/styles/styles.dart';
-import 'package:fsof/ui/utils/constants/colors.dart';
-
+import 'package:fsof/ui/utils/constants/constants.dart';
 
 Future<DialogResponse?> showNotImplemented(
   BuildContext context, {
@@ -18,6 +17,46 @@ Future<DialogResponse?> showNotImplemented(
   );
 }
 
+Future<DialogResponse?> handleError({
+  required BuildContext context,
+  required dynamic exception,
+  VoidCallback? onRetry,
+  String? errorMessage,
+  bool barrierDismissible = true,
+}) {
+  switch (exception.runtimeType) {
+    /*case NetworkConnectionException:
+      return showErrorDialog(
+        context: context,
+        message: Strings.noInternetError,
+        onRetry: onRetry,
+        barrierDismissible: barrierDismissible,
+      );
+    case RequestCommonErrorException:
+      return showErrorDialog(
+        context: context,
+        message: errorMessage ?? Strings.commonError,
+        onRetry: onRetry,
+        barrierDismissible: barrierDismissible,
+      );*/
+
+    default:
+      if (errorMessage?.isNotEmpty == true) {
+        return showErrorDialog(
+          context: context,
+          message: errorMessage,
+          onRetry: onRetry,
+          barrierDismissible: barrierDismissible,
+        );
+      } else {
+        return showErrorDialog(
+          context: context,
+          onRetry: onRetry,
+          barrierDismissible: barrierDismissible,
+        );
+      }
+  }
+}
 
 Future<T?> showCommonDialog<T>({
   required BuildContext context,
@@ -30,10 +69,10 @@ Future<T?> showCommonDialog<T>({
     barrierDismissible: barrierDismissible,
     builder: (context) {
       return BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 18, sigmaY: 18),
+        filter: ImageFilter.blur(sigmaX: kDimens18, sigmaY: kDimens18),
         child: Dialog(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14.0),
+            borderRadius: BorderRadius.circular(kDimens14),
           ),
           backgroundColor: backgroundColor,
           child: content,
@@ -57,7 +96,10 @@ Future<DialogResponse?> showSofDialog({
     context: context,
     barrierDismissible: barrierDismissible,
     content: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+      padding: const EdgeInsets.symmetric(
+        horizontal: kDimens24,
+        vertical: kDimens20,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.min,
@@ -95,7 +137,7 @@ Future<DialogResponse?> showSofDialog({
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: kPrimaryColor,
-                      elevation: 0,
+                      elevation: kDimens0,
                     ),
                     onPressed: () {
                       Navigator.of(context, rootNavigator: true)
@@ -104,7 +146,7 @@ Future<DialogResponse?> showSofDialog({
                     child: Text(
                       positiveButton ?? I18n.of(context).gOk,
                       style: Styles.dialogButton.copyWith(
-                        color: kWhite60,
+                        color: kWhite100,
                       ),
                     ),
                   ),
@@ -128,7 +170,8 @@ Future<DialogResponse?> showErrorDialog({
     context: context,
     title: title ?? I18n.of(context).eWarning,
     message: message ?? I18n.of(context).eCommonError,
-    negativeButton: onRetry != null ? I18n.of(context).gCancel:I18n.of(context).gOk ,
+    negativeButton:
+        onRetry != null ? I18n.of(context).gCancel : I18n.of(context).gOk,
     positiveButton: onRetry != null ? I18n.of(context).gRetry : null,
     displayPositive: onRetry != null,
     displayNegative: true,

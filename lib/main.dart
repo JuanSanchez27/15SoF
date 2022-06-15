@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:fsof/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -5,19 +6,30 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fsof/ui/screen/landing/landing_page.dart';
 import 'package:fsof/ui/styles/styles.dart';
 import 'package:fsof/ui/utils/constants/constants.dart';
+import 'package:fsof/ui/widgets/custom_loaders/loader.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+
+  runApp(
+    MyApp()
+  );
+}
+
+
+class MyApp extends StatelessWidget {
+  MyApp({Key? key}) : super(key: key);
 
   final ThemeData theme = ThemeData(
     fontFamily: fontFamily,
     scaffoldBackgroundColor: kBackgroundColor,
   );
-
-  runApp(
-    ProviderScope(
+  @override
+  Widget build(BuildContext context) {
+    return ProviderScope(
       child: MaterialApp(
-        home: const LandingPage(),
+        home: LandingPage(),
         debugShowCheckedModeBanner: false,
         localizationsDelegates: const [
           I18n.delegate,
@@ -32,6 +44,6 @@ void main() {
           ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }

@@ -8,7 +8,6 @@ import 'package:fsof/ui/styles/styles.dart';
 import 'package:fsof/ui/utils/constants/constants.dart';
 import 'package:fsof/ui/widgets/buttons/fsof_gradient_button.dart';
 import 'package:fsof/ui/widgets/texts/fsof_link_text.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 class AccountGuestScreen extends StatelessWidget {
   const AccountGuestScreen({Key? key}) : super(key: key);

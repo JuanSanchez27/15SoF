@@ -68,28 +68,24 @@ class FsofAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox();
-    /*return ControlPanelGate(
-      //isEnabled: AppConfiguration.controlPanelEnabled,
-      child: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: backgroundColor,
-        title: title,
-        centerTitle: centerTitle,
-        leading: leading != null
-            ? Padding(
-                padding: const EdgeInsets.only(left: 20.0),
-                child: leading,
-              )
-            : null,
-        actions:
-            actions != null ? [...actions!, const SizedBox(width: 16)] : [],
-        titleSpacing: titleSpacing,
-        bottom: bottom,
-        elevation: elevation ?? 0,
-        toolbarHeight: kToolbarHeight + topWhiteSpace!,
-        shadowColor: kDarkRed.withAlpha(80),
-      ),
-    );*/
+    return AppBar(
+      automaticallyImplyLeading: false,
+      backgroundColor: backgroundColor,
+      title: title,
+      centerTitle: centerTitle,
+      leading: leading != null
+          ? Padding(
+              padding: const EdgeInsets.only(left: kDimens20),
+              child: leading,
+            )
+          : null,
+      actions:
+          actions != null ? [...actions!, const SizedBox(width: kDimens16)] : [],
+      titleSpacing: titleSpacing,
+      bottom: bottom,
+      elevation: elevation ?? kDimens0,
+      toolbarHeight: kToolbarHeight + topWhiteSpace!,
+      shadowColor: kDarkRed.withAlpha(80),
+    );
   }
 }

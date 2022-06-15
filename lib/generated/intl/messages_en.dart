@@ -26,8 +26,14 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "eCommonError": MessageLookupByLibrary.simpleMessage(
             "An error occurred while performing the operation"),
+        "eIncorrectCode":
+            MessageLookupByLibrary.simpleMessage("Incorrect verification code"),
+        "eInvalidPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Invalid phone number"),
         "eNoInternetError": MessageLookupByLibrary.simpleMessage(
             "Could not connect to the server. Please check your internet connection"),
+        "eNumbersAttendsExceedLimit": MessageLookupByLibrary.simpleMessage(
+            "Numbers of attempts to verify phone number exceeded the limit. \nPlease try again in 1 hour."),
         "eTimeoutError":
             MessageLookupByLibrary.simpleMessage("Operation timeout exceeded"),
         "eWarning": MessageLookupByLibrary.simpleMessage("Warning"),
@@ -36,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "gContinue": MessageLookupByLibrary.simpleMessage("Continue"),
         "gDone": MessageLookupByLibrary.simpleMessage("Done"),
+        "gLoading": MessageLookupByLibrary.simpleMessage("Loading"),
         "gOk": MessageLookupByLibrary.simpleMessage("OK"),
         "gRetry": MessageLookupByLibrary.simpleMessage("Retry"),
         "gSkip": MessageLookupByLibrary.simpleMessage("Skip"),
@@ -112,6 +119,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "A verification code will be sent to you"),
         "sLoginMobileTitle":
             MessageLookupByLibrary.simpleMessage("Enter Phone Number"),
+        "sLoginParentalConsentTitle": MessageLookupByLibrary.simpleMessage(
+            " Since you\'re younger than 18, parental consent is required."),
+        "sLoginParentalConsentingInitial":
+            MessageLookupByLibrary.simpleMessage("Consenting parent initials"),
+        "sLoginParentalContentSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Your parental or legal guardian must enter their initials to authorize your use."),
         "sLoginPassword": MessageLookupByLibrary.simpleMessage("Password"),
         "sTitle": MessageLookupByLibrary.simpleMessage("15SoF"),
         "sWebViewPrivacyPolicyTitle":

@@ -300,6 +300,36 @@ class I18n {
     );
   }
 
+  /// ` Since you're younger than 18, parental consent is required.`
+  String get sLoginParentalConsentTitle {
+    return Intl.message(
+      ' Since you\'re younger than 18, parental consent is required.',
+      name: 'sLoginParentalConsentTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your parental or legal guardian must enter their initials to authorize your use.`
+  String get sLoginParentalContentSubtitle {
+    return Intl.message(
+      'Your parental or legal guardian must enter their initials to authorize your use.',
+      name: 'sLoginParentalContentSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Consenting parent initials`
+  String get sLoginParentalConsentingInitial {
+    return Intl.message(
+      'Consenting parent initials',
+      name: 'sLoginParentalConsentingInitial',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `The future of memories`
   String get sLoginGuestPageTitle {
     return Intl.message(
@@ -510,6 +540,16 @@ class I18n {
     );
   }
 
+  /// `Loading`
+  String get gLoading {
+    return Intl.message(
+      'Loading',
+      name: 'gLoading',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `This functionality is in development`
   String get mInDevelopment {
     return Intl.message(
@@ -555,6 +595,36 @@ class I18n {
     return Intl.message(
       'Could not connect to the server. Please check your internet connection',
       name: 'eNoInternetError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid phone number`
+  String get eInvalidPhoneNumber {
+    return Intl.message(
+      'Invalid phone number',
+      name: 'eInvalidPhoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Incorrect verification code`
+  String get eIncorrectCode {
+    return Intl.message(
+      'Incorrect verification code',
+      name: 'eIncorrectCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Numbers of attempts to verify phone number exceeded the limit. \nPlease try again in 1 hour.`
+  String get eNumbersAttendsExceedLimit {
+    return Intl.message(
+      'Numbers of attempts to verify phone number exceeded the limit. \nPlease try again in 1 hour.',
+      name: 'eNumbersAttendsExceedLimit',
       desc: '',
       args: [],
     );

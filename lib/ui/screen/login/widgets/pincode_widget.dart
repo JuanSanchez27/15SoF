@@ -22,11 +22,13 @@ class PinCodeWidget extends StatelessWidget {
     required this.onChanged,
     required this.onSubmitted,
     required this.onCompleted,
+    required this.isError,
     Key? key,
     this.errorAnimationController,
     this.size = kDimens41,
     this.controller,
     this.enablePinAutofill = true,
+
   }) : super(key: key);
 
   final bool obscureText;
@@ -38,6 +40,7 @@ class PinCodeWidget extends StatelessWidget {
   final double? size;
   final TextEditingController? controller;
   final bool enablePinAutofill;
+  final bool isError;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +69,7 @@ class PinCodeWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(kDimens8),
         borderWidth: kDimens2,
         shape: PinCodeFieldShape.box,
-        activeColor: kTransparent,
+        activeColor: isError ? kDarkRed : kTransparent,
         inactiveColor: kTransparent,
         selectedColor: kPrimaryColor,
         errorBorderColor: kDarkRed,

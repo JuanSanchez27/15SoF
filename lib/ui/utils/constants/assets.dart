@@ -33,3 +33,8 @@ const kImageIcPlay = '$kSvgPath/ic_play.svg';
 const kImageIcSearch = '$kSvgPath/ic_search.svg';
 const kImageIcShare = '$kSvgPath/ic_share.svg';
 const kImageIcRemove = '$kSvgPath/ic_remove.svg';
+
+
+//Base API URL
+
+const String basePath = '15sof-api-qa03.azurewebsites.net';

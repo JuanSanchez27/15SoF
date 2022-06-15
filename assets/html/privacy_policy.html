@@ -2,15 +2,23 @@
 <html>
 <head>
 	<title>privacy policy</title>
+	<script type="text/javascript">
+        function invokeNative() {
+            MessageInvoker.postMessage('Trigger from Javascript code');
+        }
+		document.getElementById("content").addEventListener("scroll", () => console.log('Trigger from Javascript code') );
+		window.addEventListener("scroll", () => console.log('Trigger from Javascript code') );
+    </script>
 </head>
 
 
 <body style="background-color: #242a38;">
+	
 
 <style type="text/css">
     @font-face { font-family: 'Ubuntu-Light'; src: url('Ubuntu-Light.ttf'); }
     
-	.privacy_policy { color: #ffffff; width:100%; margin:auto; background-color: #242a38; padding: 0px; max-width: 1000px; font-family: 'Ubuntu-Light';}
+	.privacy_policy { color: #ffffff; width:100%; margin:auto; background-color: #242a38; padding: 0px; max-width: 1000px; font-family: 'Ubuntu-Light'; height: 1000px; width: 100%; overflow-y: scroll; -ms-overflow-style: none; scrollbar-width: none;}
 	.privacy_policy a { color: #38bac9; text-decoration: none; }
 	.privacy_policy h1, .privacy_policy h2 { text-align: center; }
 	.privacy_policy h2 { font-weight: normal; }
@@ -24,8 +32,9 @@
 	.privacy_policy ul.letter li { padding-left: 0; margin-left:0px;}
 	.privacy_policy table { border-collapse: collapse; border:1px solid #ffffff; }
 	.privacy_policy table tr td {border-collapse: collapse; border:1px solid #ffffff; padding: 5px;	}
+	.privacy_policy::-webkit-scrollbar { display: none;}
 </style>
-<div class="privacy_policy">
+<div class="privacy_policy parent" id="content" onscroll="scrolled(this)">
 	<h1>PRIVACY POLICY FOR 15 SECONDS OF FAME, INC.</h1>
 	<p>15 Seconds of Fame, Inc. (“15SOF”, “we”, “our”, “us”) collects information about you when you use the 15 SECONDS OF FAME™ mobile application and/or website (the foregoing, together with any other platform through which we may offer our services, the “15SOF Services”) and we may share some or all of that information with one or more third parties in certain circumstances.  We created this privacy policy (“Privacy Policy”) to explain our data collection practices and your options regarding such data.  This Privacy Policy applies to your access and use of the 15SOF Services. </p>
 
@@ -289,5 +298,16 @@
 
 </div>
 
+<script type="text/javascript">
+	//window.addEventListener("scroll", () => MessageInvoker.postMessage('Prueba de Sroll'));
+	function scrolled(o)
+    {
+      //visible height + pixel scrolled = total height
+      if(o.offsetHeight + o.scrollTop == o.scrollHeight)
+      {
+		MessageInvoker.postMessage('Prueba de Sroll');
+      }
+    }
+</script>
 </body>
 </html>
